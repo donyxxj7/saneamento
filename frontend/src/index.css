@@ -1,0 +1,8 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+@tailwind utilities;
+
+/* Você pode adicionar seus estilos globais aqui */
+body {
+  font-family: Arial, sans-serif;
+}

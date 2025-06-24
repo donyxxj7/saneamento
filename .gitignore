@@ -1,0 +1,33 @@
+# Ignorar dependências do Node
+node_modules/
+
+# Ignorar builds do frontend
+frontend/dist/
+
+# Ignorar ambiente virtual do Python
+backend/venv/
+
+# Ignorar arquivos de cache e temporários do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de banco de dados SQLite (se houver)
+*.db
+*.sqlite3
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de configuração de ambiente
+.env
+.flaskenv
+
+# Ignorar arquivos de IDEs
+.vscode/
+.idea/
+
+# Ignorar arquivos de sistema
+.DS_Store
+thumbs.db
