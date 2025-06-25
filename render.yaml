@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: saneamento-sc-backend
+    env: python
+    buildCommand: |
+      cd backend &&
+      pip install -r requirements.txt
+    startCommand: |
+      cd backend &&
+      python src/main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: saneamento-sc-db
+          property: connectionString
+      - key: EMAIL_USER
+        value: endonyparadela2007@gmail.com
+      - key: EMAIL_PASSWORD
+        value: ygcl tpom nvxm agtu
+
+databases:
+  - name: saneamento-sc-db
+    databaseName: saneamento_sc
+    user: saneamento_user

@@ -10,11 +10,11 @@ from src.models.denuncia import Denuncia
 
 denuncia_bp = Blueprint('denuncia', __name__)
 
-# Configurações de e-mail
+# Configurações de e-mail usando variáveis de ambiente
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
-EMAIL_USER = 'endonyparadela2007@gmail.com'
-EMAIL_PASSWORD = 'ygcl tpom nvxm agtu'
+EMAIL_USER = os.environ.get('EMAIL_USER', 'endonyparadela2007@gmail.com')
+EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD', 'ygcl tpom nvxm agtu')
 
 # Mapeamento de cidades para e-mails das prefeituras
 PREFEITURAS_EMAIL = {
@@ -107,7 +107,7 @@ def enviar_denuncia():
         email_prefeitura = PREFEITURAS_EMAIL.get(cidade_lower, f'prefeitura@{cidade_lower.replace(" ", "")}.sc.gov.br')
         
         # Para demonstração, enviar para o seu e-mail pessoal
-        email_destino = 'endonyparadela2007@gmail.com'
+        email_destino = EMAIL_USER
         nova_denuncia.enviado_para = email_destino
         
         # Salvar no banco de dados
@@ -171,4 +171,3 @@ Projeto de Feira de Ciências
     except Exception as e:
         print(f"Erro ao processar denúncia: {str(e)}")
         return jsonify({'error': 'Erro interno do servidor'}), 500
-
